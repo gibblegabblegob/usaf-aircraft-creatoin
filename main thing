@@ -1,0 +1,219 @@
+import time
+
+
+def main():
+    vt = v_type()
+    pm = p_mission()
+    mm = m_mission()
+    st = status()
+    ca = calculating_num(pm)
+    se = series()
+    output(st, mm, pm, vt, ca, se)
+
+
+def v_type():
+    print("what is your veiachle type:")
+    print("")
+    print("""D: Unmanned aerial vehicle (UAV) control segment
+G: Glider
+H: Helicopter
+Q: Unmanned aerial vehicle
+S: Spaceplane
+V: Vertical take-off/short take-off and landing (VTOL/STOL)
+Z: Lighter-than-air
+leave blank:  Airoplanes""")
+    print("")
+
+    vehicle_type = input("-->")
+
+    return (vehicle_type)
+
+
+def p_mission():
+    print("Primary mission:")
+    print("")
+    print("""A: Attack aircraft (for tactical air-to-surface mission)
+B: Bomber (for strategic air-to-surface mission)
+C: Cargo (i.e. Transport)
+E: Special electronic installation
+F: Fighter
+K: Tanker (dropped between 1977 and 1985)
+L: Laser-equipped
+O: Observation (Forward Air Control)
+P: Maritime patrol
+R: Reconnaissance
+S: Anti-submarine warfare
+T: Trainer
+U: Utility
+X: Special research""")
+    print("")
+
+    primary_mission = input("-->")
+
+    return (primary_mission)
+
+
+def m_mission():
+    print("Modafied mission (n/a)")
+    print("")
+    print("""A: Attack
+C: Cargo (i.e., transport)
+D: Drone (i.e., drone control)
+E: Electronic warfare
+F: Fighter
+H: Search and rescue, MEDEVAC
+K: Kerosene carrier (i.e., tanker)
+L: Equipped for cold weather operations
+M: Multi-mission (i.e., Special Operations)
+O: Observation
+P: Maritime patrol
+Q: Unmanned aerial vehicle
+R: Reconnaissance
+S: Surface warfare
+T: Trainer
+U: Utility
+V: VIP transport
+W: Weather reconnaissance
+leave blank: No modafied mission""")
+    print("")
+
+    modafied_mission = input("-->")
+
+    return (modafied_mission)
+
+
+def status():
+    print("""G: Permanently grounded
+J: Special test, temporary
+N: Special test, permanent
+X: Experimental
+Y: Prototype
+Z: Planning
+leave blank: in service""")
+    print("")
+
+    c_status = input("-->")
+
+    return (c_status)
+
+
+def calculating_num(pm):
+    print(
+        "find your primary mission letter and find the number coralating to it (this is the next free number for the class). you can pick any number that is the same or bigger!"
+    )
+    print("")
+    print("your primary is:", str.upper(pm))
+    print("")
+    print("""A		14
+B		22
+C		47
+D   	5
+E	 	12
+F		24
+G		17
+H   	74
+H   	7
+L		2
+O		7
+P		10
+Q		28
+R		2
+S   	4
+S   	2
+T		8
+V		25
+Z		5""")
+    print("")
+    desighn_num = input("-->")
+
+    return (desighn_num)
+
+
+def series():
+    print("are there multipul modifacations of this plane? 1(yes) 2(no)")
+    print("")
+    are = input("-->")
+    if are == "1":
+        print(
+            "this can be any letter but only one. e.g. the f-35 b has vtol capabilatys but the f-35 a does not"
+        )
+        print("")
+        print("input the letter below pls:")
+        print("")
+        series_n = input("-->")
+    else:
+        series_n = ""
+
+    return (series_n)
+
+
+def end():
+    print("ended")
+
+
+def tutorial():
+    wait = 4
+    print(
+        "to distinguish aircraft all usaf aircraft have got distinguishing names"
+    )
+    print("")
+    time.sleep(wait)
+    print(
+        "for exmaple the F in F_35 means fighter and 35 is the desighn number, the F_14 is a compleatly diferent plane but is also a fighter"
+    )
+    print("")
+    time.sleep(wait)
+    print(
+        "[status][modified mission][basic mission][vehicle]-[Desighn number][series letter]"
+    )
+    print("")
+    time.sleep(wait)
+    print(
+        "Becuse planes are so common they dont have a vehicle letter it is just left blank"
+    )
+    print("")
+    time.sleep(wait)
+    print("(n/a) means the selection is optional")
+    print("")
+    print("")
+    main()
+
+
+def output(c_status, modafied_mission, primary_mission, vehicle_type,
+           desighn_num, series_n):
+    print("")
+    print("")
+    time.sleep(2)
+    print("calculating mass")
+    time.sleep(0.5)
+    print("mesuring size")
+    time.sleep(0.6)
+    print("finding width")
+    time.sleep(2)
+    print("waiting around")
+    time.sleep(3)
+    print("arming wepons")
+    time.sleep(1.2)
+    print("filing fuel tank")
+    time.sleep(0.5)
+    print("final tests")
+    time.sleep(2)
+    print("")
+    print("")
+    print("Your aircraft is:")
+    print("")
+    print(
+        str.upper(c_status) + str.upper(modafied_mission) +
+        str.upper(primary_mission) + str.upper(vehicle_type) + "-" +
+        str.upper(desighn_num) + str.upper(series_n))
+
+
+print("1(start) 2(how to use)")
+go = input()
+print("")
+if go == "1":
+    main()
+else:
+    tutorial()
+
+    #https://en.wikipedia.org/wiki/1962_United_States_Tri-Service_aircraft_designation_system
